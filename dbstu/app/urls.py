@@ -22,4 +22,5 @@ urlpatterns = [
     path('updatetech/<int:uid>/',views.updatetech),
     path('update_teacher/',views.update_teacher),
     re_path(r'^delete_product/(?P<pk>[0-9]+)/$', views.delete,name="delete"), 
+    path('logout/',views.logout),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

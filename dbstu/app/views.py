@@ -286,7 +286,10 @@ def update_teacher(request):
         return redirect('/teacher/')
     
     
-
+def logout(request):
+    auth.logout(request)
+    messages.warning(request,'sucessfully logout')
+    return redirect('/')
     
     
             
