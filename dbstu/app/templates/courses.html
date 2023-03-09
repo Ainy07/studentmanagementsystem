@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon.png">
   <link rel="icon" type="image/png" href="/img/favicon.png">
   <title>
-    Satkar Courses
+    Student management
   </title>
    <!--     Fonts and icons     -->
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -45,14 +45,6 @@
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="/tenants.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
-            </div>
-            <span class="nav-link-text ms-1">Tenants</span>
-          </a>
-        </li>
        
         <li class="nav-item">
           <a class="nav-link text-white " href="/viewstudents/">
@@ -75,14 +67,7 @@
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="/profile/">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">person</i>
-            </div>
-            <span class="nav-link-text ms-1">Profile</span>
-          </a>
-        </li>
+        
         <li class="nav-item">
           <a class="nav-link text-white " href="/">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -151,11 +136,11 @@
           <div class="card">
             <div class="card-header p-3 pt-2">
               <div
-                class="icon icon-lg icon-shape bg-gradient-info shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                class="icon icon-lg icon-shape bg-gradient-secondary shadow-dark text-center border-radius-xl mt-n4 position-absolute">
                 <i class="material-icons opacity-10">weekend</i>
               </div>
               <div class="text-end pt-1">
-                <a class="btn bg-gradient-dark mb-0" href="{% static 'javascript:;' %}" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                <a class="btn bg-gradient-secondary mb-0" href="{% static 'javascript:;' %}" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
                     class="material-icons text-sm">add</i>&nbsp;&nbsp;Add New Courses</a>
               </div>
             </div>
@@ -197,6 +182,8 @@
                     </tr>
                   </thead>
                   <tbody>
+                  
+                     
                    
                     {% for i in data %}
                     <tr>
@@ -222,9 +209,10 @@
                       <td>
                         <a href="/update_view/{{i.id}}/" class="btn btn-secondary" >Update</a> 
                       </td>
-                      <td>
-                       <a href="{% url 'delete' i.pk %}" class="btn btn-secondary">delete</a>
-                      </td>
+                      
+                        <td style="padding:10px;"><a href="{% url 'delete' i.pk %}" 
+                          class="btn btn-secondary" >Delete</a></td>
+                      
                     </tr>
                      {% endfor %}
                      
@@ -287,14 +275,6 @@
                     </div>
                   </div>
                 </form>
-                {% if messages %}
-                {% for message in messages %}               
-                  <div class=" alert-{{message.tags}} alert-dismissible fade show" role="alert">
-                    <strong>Message: </strong> {{message}}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
-                {% endfor %}
-                {% endif %}
               </div>
             </div>
             <div class="modal-footer">
